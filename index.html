@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #8A2BE2, #6A5ACD);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9370DB, #8A2BE2);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .payment-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        .payment-methods, .payment-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+
+        .payment-methods {
+            background: #f8f6ff;
+            border-right: 2px solid #eae7ff;
+        }
+
+        .method-title {
+            color: #8A2BE2;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .method-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #8A2BE2;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .method-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .method-item.active {
+            background: linear-gradient(135deg, #8A2BE2, #9370DB);
+            color: white;
+        }
+
+        .method-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .method-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .method-details {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .form-title {
+            color: #8A2BE2;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eae7ff;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #8A2BE2;
+            outline: none;
+        }
+
+        .flex-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .flex-group .input-group {
+            flex: 1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #9370DB, #8A2BE2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .payment-instruction {
+            background: #f0edff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #8A2BE2;
+        }
+
+        .instruction-title {
+            color: #8A2BE2;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .payment-content {
+                flex-direction: column;
+            }
+            
+            .payment-methods {
+                border-right: none;
+                border-bottom: 2px solid #eae7ff;
+            }
+            
+            .flex-group {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💜 Payment Gateway</h1>
+            <p>Lanjutkan pembayaran Anda dengan aman dan nyaman</p>
+        </div>
+        
+        <div class="payment-content">
+            <div class="payment-methods">
+                <h2 class="method-title">Metode Pembayaran</h2>
+                
+                <div class="method-item active">
+                    <div class="method-icon">📱</div>
+                    <div class="method-name">DANA</div>
+                    <div class="method-details">Transfer via aplikasi DANA</div>
+                </div>
+                
+                <div class="payment-instruction">
+                    <h3 class="instruction-title">Instruksi Pembayaran DANA:</h3>
+                    <p>1. Buka aplikasi DANA di smartphone Anda</p>
+                    <p>2. Pilih menu "Kirim" atau "Transfer"</p>
+                    <p>3. Masukkan nomor: <strong>089509703449</strong></p>
+                    <p>4. Atas nama: <strong>NUR** NAB*** NAS******</strong></p>
+                    <p>5. Masukkan jumlah pembayaran</p>
+                    <p>6. Konfirmasi dan selesaikan transaksi</p>
+                </div>
+            </div>
+            
+            <div class="payment-form">
+                <h2 class="form-title">Detail Pembayaran</h2>
+                
+                <form action="#">
+                    <div class="input-group">
+                        <label for="amount">Jumlah Pembayaran</label>
+                        <input type="number" id="amount" placeholder="Masukkan jumlah" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Anda</label>
+                        <input type="email" id="email" placeholder="nama@email.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="note">Catatan (Opsional)</label>
+                        <input type="text" id="note" placeholder="Tambahkan catatan untuk penerima">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Lanjutkan Pembayaran</button>
+                </form>
+                
+                <div class="payment-instruction">
+                    <h3 class="instruction-title">Penting!</h3>
+                    <p>• Simpan bukti transfer Anda</p>
+                    <p>• Transaksi akan diproses dalam 1-5 menit</p>
+                    <p>• Hubungi customer service jika mengalami kendala</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animasi untuk item metode pembayaran
+        document.querySelectorAll('.method-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.method-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Validasi form sederhana
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const amount = document.getElementById('amount').value;
+            const email = document.getElementById('email').value;
+            
+            if(amount && email) {
+                alert('Pembayaran sebesar Rp ' + amount + ' berhasil diproses! Silakan lanjutkan transfer via DANA.');
+            }
+        });
+    </script>
+</body>
+</html>
